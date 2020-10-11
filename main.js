@@ -4,42 +4,58 @@
 ui.layout(
     <drawer id="drawer">
     <appbar>
-        <toolbar bg="#FF5c50e6" id="toolbar" title="githubDome测试" paddingTop="2dp" h="auto" >
-        </toolbar>
+        <toolbar bg="#FF5c50e6" id="toolbar" title="githubDome测试V1.0" paddingTop="2dp" h="auto" >
+        <button style="Widget.AppCompat.Button.Colored" id="更新" text="更新" padding="12dp" w="auto" />
+            
+            </toolbar>
         <tabs id="tabs" />
     </appbar>
-
+            
     </drawer>
 );
 
 
+ui.更新.on("click", () => {
+    threads.start(function () {
+        log('开始更新')
+    
+        移动()
+        sleep(7000)
+        exit()
+    });
+    
+})
 
 main()
-function main(){ threads.start(function () {
+function main(){ 
+    threads.start(function () {
     msg='测试用'
     log(msg)
+    // 仓库名字="AutoWool"
+    // 作者名字="callmexiaohai"
+    // githubUrl="https://github.com/"+作者名字+"/"+仓库名字+"/archive/main.zip"
+    //    下载网址
+    // var url="https://codeload.github.com/snailuncle/AutojsUsesGitHubToUpdateCode/zip/master"
+    var url="https://github.com/callmexiaohai/Autojs.git"
+    githubUrl=url.replace('.git','')+'/archive/main.zip'
+    log(githubUrl)
+    仓库名字=githubUrl.split('/')[4]
+    作者名字=githubUrl.split('/')[3]
+    // log(仓库名字,作者名字)
+    
+    // files.move("/storage/emulated/0/脚本/zip文件专用/test/AutoWool-main/modules/woolfeels.js","/storage/emulated/0/脚本/辅助小管家/modules/111.js" )
+    // github下载的脚本=获取下载的脚本()
+    // log("github下载的脚本=",github下载的脚本)
+    // engines.execScript('auto.js&github',github下载的脚本)
+    // engines.execScriptFile(github下载的脚本);
+
+    
+
+
+
     });
 };
 
-// 仓库名字="AutoWool"
-// 作者名字="callmexiaohai"
-// githubUrl="https://github.com/"+作者名字+"/"+仓库名字+"/archive/main.zip"
-//    下载网址
-// var url="https://codeload.github.com/snailuncle/AutojsUsesGitHubToUpdateCode/zip/master"
-var url="https://codeload.github.com/callmexiaohai/AutoWool/zip/main"
-githubUrl=url.replace('codeload.','').replace('zip','archive')+'.zip'
-// log(githubUrl)
-仓库名字=url.split('/')[4]
-作者名字=url.split('/')[3]
-// log(仓库名字,作者名字)
-
-
-files.move("/storage/emulated/0/脚本/zip文件专用/test/AutoWool-main/modules/woolfeels.js","/storage/emulated/0/脚本/辅助小管家/modules/111.js" )
-// github下载的脚本=获取下载的脚本()
-// log("github下载的脚本=",github下载的脚本)
-// 移动()
-// engines.execScript('auto.js&github',github下载的脚本)
-// engines.execScriptFile(github下载的脚本);
 function 获取下载的脚本(){
   try{
     var r=http.get(githubUrl)
@@ -59,7 +75,7 @@ function 获取下载的脚本(){
 }
 
 function 保存zip文件(zipFile){
-  var path=files.join(files.cwd(),"zip文件专用/test.zip")
+  var path=files.join(files.cwd(),"zip文件专用dome/test.zip")
   files.createWithDirs(path)
   log("path=",path)
   // path= /storage/emulated/0/脚本/zip文件专用/test.zip
@@ -90,16 +106,17 @@ function 返回路径的父目录(path){
 }
 
 function 移动(){//遍历文件夹下所有的文件夹和文件
-  var dir = engines.myEngine().cwd()+"/zip文件专用/test/AutoWool-main";
+    log('开始移动')
+  var dir = engines.myEngine().cwd()+"/zip文件专用dome/test/Autojs-main";
   var arr = files.listDir(dir);
-  // log(arr.length)
+  log(dir+arr.length)
   for(i=0;i<arr.length;i++){
     log("根目录："+i+'--->'+arr[i]);
       var arr1 = files.listDir(dir+"/"+arr[i]);
       if(arr1.length==0){
         var dir1=dir+"/"+arr[i]
         var arro=dir1
-        var arrn=dir1.replace('zip文件专用/test/AutoWool-main','辅助小管家')      
+        var arrn=dir1.replace('zip文件专用dome/test/Autojs-main','githubdome')      
         log('原文件路径：'+arro)      
         log('需移动文件路径：'+arrn)
         log(files.move(arro,arrn))
@@ -110,7 +127,7 @@ function 移动(){//遍历文件夹下所有的文件夹和文件
           log(arr1[i]+"目录："+ii+'--->'+arr1[ii]);
           var dir1=dir+"/"+arr[i]+"/"+arr1[i]
           var arro=dir1
-          var arrn=dir1.replace('zip文件专用/test/AutoWool-main','辅助小管家')      
+          var arrn=dir1.replace('zip文件专用dome/test/Autojs-main','githubdome')      
           log('原文件路径：'+arro)      
           log('需移动文件路径：'+arrn)
           log(files.move(arro,arrn))
