@@ -1,23 +1,34 @@
-
-
-if(版本!==服务器版本){
-    log('服务器有最新版本，我要更新了')
-    github下载的脚本=获取下载的脚本()
-    log('github下载的脚本:',github下载的脚本)
-    log('下载完成')
-    sleep(2000)
-    移动(github下载的脚本)
-    sleep(2000)
-    var a=files.cwd()+"/main.js"
-    engines.execScriptFile(a);
-
-}else{
-    log('当前版本是最新版')
-}
+console.show()
 
 
 
 
+https://github.com/callmexiaohai/Autojs/archive/refs/heads/main.zip
+
+var url="https://github.com/callmexiaohai/Autojs.git"
+// var githubUrl=url.replace('.git','')+'/archive/main.zip'
+var githubUrl=url.replace('.git','')+'/archive/refs/heads/main.zip'
+// log(githubUrl)
+var 仓库名字=githubUrl.split('/')[4]
+var 作者名字=githubUrl.split('/')[3]
+// if(版本!==服务器版本){
+//     log('服务器有最新版本，我要更新了')
+//     github下载的脚本=获取下载的脚本()
+//     log('github下载的脚本:',github下载的脚本)
+//     log('下载完成')
+//     sleep(2000)
+//     移动(github下载的脚本)
+//     sleep(2000)
+//     var a=files.cwd()+"/main.js"
+//     engines.execScriptFile(a);
+
+// }else{
+//     log('当前版本是最新版')
+// }
+
+
+
+获取下载的脚本()
 function 获取下载的脚本(){
     log('github地址：',githubUrl)
     try{
@@ -113,3 +124,7 @@ function 移动(文件路径){//遍历文件夹下所有的文件夹和文件
 }
   
 
+
+console.hide()
+sleep(8000)
+exit()
