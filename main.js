@@ -80,7 +80,7 @@ function 移动(文件路径){//遍历文件夹下所有的文件夹和文件
     log('zip文件专用dome/test/'+仓库名字+'-main/main.js')
     var softduir= 文件路径.replace('zip文件专用dome/test/'+仓库名字+'-main/main.js','');
     log('下载路径：',dir)
-    log('软件路径softduir：',softduir+'辅助小管家')
+    log('软件路径softduir：',softduir+'AutoJs')
     var arr = files.listDir(dir);
 
 
