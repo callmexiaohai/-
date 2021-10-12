@@ -1,5 +1,5 @@
 {
-    "name": "新建项目",
+    "name": "AutoJs",
     "main": "main.js",
     "ignore": [
         "build"
