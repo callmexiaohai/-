@@ -1,16 +1,24 @@
-console.show()
-
-
-
-
-https://github.com/callmexiaohai/Autojs/archive/refs/heads/main.zip
-
+// console.show()
+//https://github.com/callmexiaohai/Autojs/archive/refs/heads/main.zip
 var url="https://github.com/callmexiaohai/Autojs.git"
-// var githubUrl=url.replace('.git','')+'/archive/main.zip'
-var githubUrl=url.replace('.git','')+'/archive/refs/heads/main.zip'
+// var githubUrl=url.replace('.git','')+'/archive/refs/heads/main.zip'
+var githubUrl=url.replace('.git','')+'/archive/refs/heads/master.zip'
 // log(githubUrl)
 var 仓库名字=githubUrl.split('/')[4]
 var 作者名字=githubUrl.split('/')[3]
+var root =files.cwd()
+if(files.cwd()=="/storage/emulated/0/脚本") {
+  log('VScode 直接运行，测试辅助定位')
+   root=files.join(files.cwd(),"Autojs")
+   }
+   //对应添加项目文件目录及对应的文件 ： var 快手之直播path=root+"/快手极速版/快手极速版.js"
+   var 学习强国path=root+"/学习强国/学习强国.js"
+   var 快手直播path=root+"/快手极速版/快手直播.js"
+   var 快手悬赏path=root+"/快手极速版/快手悬赏.js"
+   var 快手极速版=root+"/快手极速版/快手极速版.js"
+   var 学习强国自动path=root+"/学习强国/学习强国自动.js"
+log(root)
+
 // if(版本!==服务器版本){
 //     log('服务器有最新版本，我要更新了')
 //     github下载的脚本=获取下载的脚本()
@@ -28,7 +36,323 @@ var 作者名字=githubUrl.split('/')[3]
 
 
 
-获取下载的脚本()
+// 获取下载的脚本()
+
+
+// var path=files.join(files.cwd(),"zip文件专用dome/test/master-master/版本.js")
+// r = readFile(path)
+// log(r)
+// writeFile(path, 'dsfsfdsafasfds')
+// r = readFile(path)
+// log(r)
+
+
+// var path1 =files.join(path,"zip文件专用dome/test/Autojs-master")
+// log(readFile(files.cwd()))
+// var newvesion = readFile(path1).match(/\d+/g).map(Number);
+// log(newvesion)   
+// var lodvesion = readFile(path).match(/\d+/g).map(Number);
+// log(lodvesion)   
+
+// log(lodvesion[0]==newvesion[0])
+// log(lodvesion[1]==newvesion[1])
+// log(lodvesion[2]==newvesion[2])
+
+
+
+var h=device.height*0.2
+var zt='展开';
+var 说 = require(files.join(root,"/库/文本转语音.js"));
+// 说.说("测试")
+
+
+var 隐藏 = floaty.window(
+    <frame>
+    <button id="隐藏" text="隐藏" w="85" h="40"  bg="#77ffffff"/>
+    </frame>
+);
+var 停止脚本 = floaty.window(
+    <frame>
+    <button id="停止脚本" text="停止脚本" w="85" h="40"  bg="#77ffffff"/>
+    </frame>
+);
+var 退出 = floaty.window(
+    <frame>
+    <button id="退出" text="退出" w="85" h="40"  bg="#77ffffff"/>
+    </frame>
+);
+
+var 学习强国 = floaty.window(
+    <frame>
+    <button id="学习强国" text="学习强国" w="85" h="40"  bg="#77ffffff"/>
+    </frame>
+);
+var 快手直播 = floaty.window(
+    <frame  w="85" h="120" >
+    <button id="快手直播" text="快手直播" w="85" h="40"  bg="#77ffffff"/>
+    </frame>
+);
+var 快手悬赏 = floaty.window(
+    <frame>
+    <button id="快手悬赏" text="快手悬赏" w="85" h="40"  bg="#77ffffff"/>
+    </frame>
+);
+var 快手极速版 = floaty.window(
+    <frame>
+    <button id="快手极速版" text="快手极速版" w="85" h="40"  bg="#77ffffff"/>
+    </frame>
+);
+
+var 学习强国自动 = floaty.window(
+    <frame>
+    <button id="学习强国自动" text="学习强国自动" w="85" h="40"  bg="#77ffffff"/>
+    </frame>
+);
+setInterval(()=>{}, 1000);
+function kjzb(instr){
+    zt=instr
+    if(zt=='展开'){
+        // 说.说('展开 现在的状态是')
+        // 说.说(instr)
+        // 说.说(zt)
+        隐藏.setPosition(0,h+0*150)
+        停止脚本.setPosition(0,h+1*150)
+        退出.setPosition(0,h+2*150)
+        隐藏.隐藏.setText('隐藏')
+        学习强国.setPosition(0,h+6*150)
+        快手直播.setPosition(0,h+3*50)
+        快手悬赏.setPosition(0,h+4*150)
+        快手极速版.setPosition(0,h+5*150)
+        学习强国自动.setPosition(0,h+7*150)
+    }else{
+        // 说.说('进入左上角 现在的状态是')
+        // 说.说(instr)
+        // 说.说(zt)1
+        隐藏.setPosition(0,h+1*150)
+        隐藏.隐藏.setText('展开')
+        停止脚本.setPosition(0,h+1*150)
+        退出.setPosition(0,h+1*150)
+        快手直播.setPosition(0,h+1*150)
+        快手悬赏.setPosition(0,h+1*150)
+        快手极速版.setPosition(0,h+1*150)
+        学习强国.setPosition(0,h+1*150)
+        学习强国自动.setPosition(0,h+1*150)
+    }
+
+}
+
+kjzb('展开');
+var execution = null; //清空执行语句
+
+
+隐藏.隐藏.setOnTouchListener(function(view, event){
+    switch(event.getAction()){
+        case event.ACTION_UP:
+            onClick隐藏();
+            return true;
+    }
+    return true;
+});
+function onClick隐藏(){
+    说.说(隐藏.隐藏.getText())
+    if(隐藏.隐藏.getText()=='隐藏'){
+        kjzb('隐藏') ;
+    }else{
+        隐藏.隐藏.setText('展开') 
+        kjzb('展开') ;
+    }
+}
+
+停止脚本.停止脚本.setOnTouchListener(function(view, event){
+    switch(event.getAction()){
+        case event.ACTION_UP:
+            onClick停止脚本();
+            return true;
+    }
+    return true;
+});
+function onClick停止脚本(){    
+    停止脚本.停止脚本.setEnabled(false)  
+    说.说(停止脚本.停止脚本.getText()) 
+    答题.答题.setEnabled(true)
+    学习.学习.setEnabled(true)           
+    if(execution){
+        execution.getEngine().forceStop();
+        答题.答题.setEnabled(true)
+        学习.学习.setEnabled(true)
+    } 
+    kjzb("可以退出") ;
+}
+
+退出.退出.setOnTouchListener(function(view, event){
+    switch(event.getAction()){
+        case event.ACTION_UP:
+            onClick退出();
+            return true;
+    }
+    return true;
+});
+function onClick退出(){
+    说.说(退出.退出.getText())
+    exit();
+
+}
+
+学习强国.学习强国.setOnTouchListener(function(view, event){
+    switch(event.getAction()){
+        case event.ACTION_UP:
+            onClick学习强国();
+            return true;
+    }
+    return true;
+});
+function onClick学习强国(){
+    学习强国.学习强国.setEnabled(true) 
+    说.说(学习强国.学习强国.getText())    
+    execution = engines.execScriptFile(学习强国path);
+    学习强国.学习强国.setEnabled(false)
+    kjzb("隐藏") ; 
+}
+
+快手直播.快手直播.setOnTouchListener(function(view, event){
+    switch(event.getAction()){
+        case event.ACTION_UP:
+            onClick快手直播();
+            return true;
+    }
+    return true;
+});
+function onClick快手直播(){
+    快手直播.快手直播.setEnabled(true) 
+    说.说(快手直播.快手直播.getText())    
+    execution = engines.execScriptFile(快手直播path);
+    快手直播.快手直播.setEnabled(false)
+    kjzb("隐藏") ;
+}
+
+快手悬赏.快手悬赏.setOnTouchListener(function(view, event){
+    switch(event.getAction()){
+        case event.ACTION_UP:
+            onClick快手悬赏();
+            return true;
+    }
+    return true;
+});
+function onClick快手悬赏(){
+    快手悬赏.快手悬赏.setEnabled(true) 
+    说.说(快手悬赏.快手悬赏.getText())    
+    execution = engines.execScriptFile(快手悬赏path);
+    快手悬赏.快手悬赏.setEnabled(false)
+    kjzb("隐藏") ;
+}  
+    
+快手极速版.快手极速版.setOnTouchListener(function(view, event){
+    switch(event.getAction()){
+        case event.ACTION_UP:
+            onClick快手极速版();
+            return true;
+    }
+    return true;
+});
+function onClick快手极速版(){
+    快手极速版.快手极速版.setEnabled(true) 
+    说.说(快手极速版.快手极速版.getText())    
+    execution = engines.execScriptFile(快手极速版path);
+    快手极速版.快手极速版.setEnabled(false)
+    kjzb("隐藏") ;
+}  
+   
+学习强国自动.学习强国自动.setOnTouchListener(function(view, event){
+    switch(event.getAction()){
+        case event.ACTION_UP:
+            onClick学习强国自动();
+            return true;
+    }
+    return true;
+});
+function onClick学习强国自动(){
+    学习强国自动.学习强国自动.setEnabled(true) 
+    说.说(学习强国自动.学习强国自动.getText())    
+    execution = engines.execScriptFile(学习强国自动path);
+    学习强国自动.学习强国自动.setEnabled(false)
+    kjzb("隐藏") ; 
+} 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * @param {移动文件} msg 
+ */
+function 移动文件(项目名称,项目目录,fileName){
+    fileNameq=fileName.split('.')[0]
+    fileNameh=fileName.split('.')[1]
+    if(项目目录==""){
+
+        var oldpath=engines.myEngine().cwd()+"/"+fileNameq+'.js'
+        var newpath=engines.myEngine().cwd()+"/"+项目名称+"/"+fileNameq+'.js'
+        log(oldpath+'复制到:'+newpath)
+        files.copy(oldpath, newpath)
+        log('复制成功')
+    }else{
+            var oldpath=engines.myEngine().cwd()+"/"+fileNameq+'.js'
+            var newpath1=engines.myEngine().cwd()+"/"+项目名称+"/"+项目目录+"/"+fileNameq+'.js'
+            var newpath2=engines.myEngine().cwd()+"/"+项目目录+"/"+fileNameq+'.js'//av直接测试用
+            // log(oldpath+'复制到:'+newpath1)
+            // log(oldpath+'复制到:'+newpath2)
+            files.copy(oldpath, newpath1)
+            files.copy(oldpath, newpath2)
+            // log('复制成功')
+            //转md文档
+            if(fileNameh=='md'){
+                files.rename(engines.myEngine().cwd()+'/'+项目名称+'/'+项目目录+"/"+fileNameq+'.js', fileNameq+'.md'); 
+                files.rename(engines.myEngine().cwd()+'/'+项目目录+"/"+fileNameq+'.js', fileNameq+'.md'); 
+                // log("重命名成功："+engines.myEngine().cwd()+'/'+项目名称+'/'+项目目录+"/"+fileNameq+'.js')
+            }
+        }
+            
+    
+}
+
+
+
+
+
+function readFile(path) {
+  var tempFile =files.join(path,"/版本.js")
+  // log(tempFile)
+  // var sh = new Shell(true);
+  // sh.exec('cat ' + path + '> ' + tempFile)
+  // sh.exitAndWaitFor()
+  // log(tempFile)
+  // files.read("/sdcard/1.txt",encoding = "UTF-8");    
+  return files.read(tempFile,encoding = "UTF-8")
+}
+
+function writeFile(path, content) {
+  var tempFile = '/sdcard/temp.txt'
+  files.createWithDirs(tempFile)
+  files.write(tempFile, content)
+  var sh = new Shell(true);
+  sh.exec('cat ' + tempFile + ' > ' + path)
+  sh.exitAndWaitFor()
+}
+
+
+
+
+
 function 获取下载的脚本(){
     log('github地址：',githubUrl)
     try{
@@ -70,7 +394,7 @@ function 解压zip文件(文件路径){
     log('解压的文件夹路径=',文件夹路径)
     files.createWithDirs(文件夹路径) //如果文件不存在，创建一个文件，如果存在，返回 false
     com.stardust.io.Zip.unzip(new java.io.File(文件路径), new java.io.File(文件夹路径))
-    return 文件夹路径+仓库名字+"-main"+"/main.js"
+    return 文件夹路径+仓库名字+"-master"+"/master.js"
 }
   
   
@@ -124,7 +448,3 @@ function 移动(文件路径){//遍历文件夹下所有的文件夹和文件
 }
   
 
-
-console.hide()
-sleep(8000)
-exit()
