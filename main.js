@@ -13,9 +13,9 @@ if(files.cwd()=="/storage/emulated/0/脚本") {
    }
    //对应添加项目文件目录及对应的文件 ： var 快手之直播path=root+"/快手极速版/快手极速版.js"
    var 学习强国path=root+"/学习强国/学习强国.js"
-   var 快手直播path=root+"/快手极速版/快手直播.js"
-   var 快手悬赏path=root+"/快手极速版/快手悬赏.js"
-   var 快手极速版=root+"/快手极速版/快手极速版.js"
+   var 快手直播path=root+"/视频/快手极速版/快手直播.js"
+   var 快手悬赏path=root+"/视频/快手极速版/快手福利.js"
+   var 快手极速版=root+"/视频/快手极速版/快手极速版.js"
    var 学习强国自动path=root+"/学习强国/学习强国自动.js"
 log(root)
 
@@ -66,11 +66,7 @@ var 说 = require(files.join(root,"/库/文本转语音.js"));
 // 说.说("测试")
 
 
-var 隐藏 = floaty.window(
-    <frame>
-    <button id="隐藏" text="隐藏" w="85" h="40"  bg="#77ffffff"/>
-    </frame>
-);
+
 var 停止脚本 = floaty.window(
     <frame>
     <button id="停止脚本" text="停止脚本" w="85" h="40"  bg="#77ffffff"/>
@@ -108,28 +104,34 @@ var 学习强国自动 = floaty.window(
     <button id="学习强国自动" text="学习强国自动" w="85" h="40"  bg="#77ffffff"/>
     </frame>
 );
+var 隐藏 = floaty.window(
+    <frame>
+    <button id="隐藏" text="隐藏" w="85" h="40"  bg="#77ffffff"/>
+    </frame>
+);
 setInterval(()=>{}, 1000);
+
+
+
 function kjzb(instr){
     zt=instr
     if(zt=='展开'){
         // 说.说('展开 现在的状态是')
         // 说.说(instr)
         // 说.说(zt)
-        隐藏.setPosition(0,h+0*150)
-        停止脚本.setPosition(0,h+1*150)
-        退出.setPosition(0,h+2*150)
-        隐藏.隐藏.setText('隐藏')
-        学习强国.setPosition(0,h+6*150)
-        快手直播.setPosition(0,h+3*50)
+        停止脚本.setPosition(0,h+0*150)
+        退出.setPosition(0,h+1*150)
+        学习强国.setPosition(0,h+2*150)
+        快手直播.setPosition(0,h+3*150)
         快手悬赏.setPosition(0,h+4*150)
         快手极速版.setPosition(0,h+5*150)
-        学习强国自动.setPosition(0,h+7*150)
+        学习强国自动.setPosition(0,h+6*150)
+        隐藏.setPosition(0,h+7*150)
+        隐藏.隐藏.setText('隐藏')
     }else{
         // 说.说('进入左上角 现在的状态是')
         // 说.说(instr)
         // 说.说(zt)1
-        隐藏.setPosition(0,h+1*150)
-        隐藏.隐藏.setText('展开')
         停止脚本.setPosition(0,h+1*150)
         退出.setPosition(0,h+1*150)
         快手直播.setPosition(0,h+1*150)
@@ -137,6 +139,8 @@ function kjzb(instr){
         快手极速版.setPosition(0,h+1*150)
         学习强国.setPosition(0,h+1*150)
         学习强国自动.setPosition(0,h+1*150)
+        隐藏.setPosition(0,h+1*150)
+        隐藏.隐藏.setText('展开')
     }
 
 }
@@ -174,12 +178,14 @@ function onClick隐藏(){
 function onClick停止脚本(){    
     停止脚本.停止脚本.setEnabled(false)  
     说.说(停止脚本.停止脚本.getText()) 
-    答题.答题.setEnabled(true)
-    学习.学习.setEnabled(true)           
+    快手直播.快手直播.setEnabled(true)
+    快手悬赏.快手悬赏.setEnabled(true)
+    快手极速版.快手极速版.setEnabled(true)     
     if(execution){
         execution.getEngine().forceStop();
-        答题.答题.setEnabled(true)
-        学习.学习.setEnabled(true)
+        快手直播.快手直播.setEnabled(true)
+        快手悬赏.快手悬赏.setEnabled(true)
+        快手极速版.快手极速版.setEnabled(true)   
     } 
     kjzb("可以退出") ;
 }
@@ -226,6 +232,7 @@ function onClick快手直播(){
     快手直播.快手直播.setEnabled(true) 
     说.说(快手直播.快手直播.getText())    
     execution = engines.execScriptFile(快手直播path);
+    log(快手直播path)
     快手直播.快手直播.setEnabled(false)
     kjzb("隐藏") ;
 }
@@ -241,6 +248,7 @@ function onClick快手直播(){
 function onClick快手悬赏(){
     快手悬赏.快手悬赏.setEnabled(true) 
     说.说(快手悬赏.快手悬赏.getText())    
+    log(快手直播path)
     execution = engines.execScriptFile(快手悬赏path);
     快手悬赏.快手悬赏.setEnabled(false)
     kjzb("隐藏") ;

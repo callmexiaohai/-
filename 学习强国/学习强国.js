@@ -5,7 +5,7 @@
 var root =engines.myEngine().cwd();
 //获取位置，方便在VS测试
 if(root="/storage/emulated/0/脚本"){
-    var root=root+"/机器人/库/"; //当前文件所在的工程位置
+    var root=root+"/AutoJs/库/"; //当前文件所在的工程位置
     }else{
      var root =engines.myEngine().cwd();
 }

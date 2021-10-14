@@ -1,8 +1,8 @@
 // 
 console.show()
 console.setPosition(200, 0);
-var root ="/storage/emulated/0/脚本/机器人"
-var 快手之直播path=root+"/视频/快手极速版/快手之直播.js"
+var root ="/storage/emulated/0/脚本/AutoJs"
+var 快手之直播path=root+"/视频/快手极速版/快手直播.js"
 var funs = require(root+"/库/funs.js");
 var 划 = require(root+"/库/人工划屏.js");
 //到点必须关闭
