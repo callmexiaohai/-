@@ -229,7 +229,7 @@ funs.控件_单定位点击 = function (uiobject_str) {
 
     if (uiobject) {
         objkj = uiobject;
-        if (objkj.checkable()) {
+        if (objkj.clickable()) {
             log('本控件')
             objkj.click();
             return objkj;
@@ -250,7 +250,7 @@ funs.控件_单定位点击 = function (uiobject_str) {
     }
     if (uiobject.parent()) {
         objkj1 = uiobject.parent();
-        if (objkj1.checkable()) {
+        if (objkj1.clickable()) {
             log('1层父控件')
             objkj1.click();
             return objkj1;
@@ -272,7 +272,7 @@ funs.控件_单定位点击 = function (uiobject_str) {
     }
     if (uiobject.parent().parent()) {
         objkj2 = uiobject.parent().parent()
-        if (objkj2.checkable()) {
+        if (objkj2.clickable()) {
             log('2层父控件！')
             objkj2.click();
             return objkj2;
@@ -294,7 +294,7 @@ funs.控件_单定位点击 = function (uiobject_str) {
     };
     if (uiobject.parent().parent().parent()) {
         objkj3 = uiobject.parent().parent().parent();
-        if (objkj3.checkable()) {
+        if (objkj3.clickable()) {
             log('3层父控件！')
             objkj3.click();
             return objkj3;
@@ -316,7 +316,7 @@ funs.控件_单定位点击 = function (uiobject_str) {
     };
     if (uiobject.parent().parent().parent().parent()) {
         objkj4 = uiobject.parent().parent().parent().parent();
-        if (objkj4.checkable()) {
+        if (objkj4.clickable()) {
             log('4层父控件！')
             objkj4.click();
             return objkj4;
@@ -363,7 +363,8 @@ funs.控件_双重定位 = function (uiobject_str1, uiobject_str2,mun) {
     if(mun=='1'){return uiobject11}
     if(mun=='2'){return uiobject22}
 }
-funs.控件_位置_居中 = function (uiobject_str1, uiobject_str2, logStr) {
+
+funs.控件_双_位置_居中 = function (uiobject_str1, uiobject_str2, logStr) {
     while (true) {
         sleep(800)
         uiobject = funs.控件_双字符定位(uiobject_str1, uiobject_str2)
@@ -378,6 +379,68 @@ funs.控件_位置_居中 = function (uiobject_str1, uiobject_str2, logStr) {
 
                 log(uiobject.bounds().centerX(), uiobject.bounds().centerY())
                 click(uiobject.bounds().centerX(), uiobject.bounds().centerY())
+                return true;
+            }
+        } else {
+            return null;
+        }
+    }
+    // log(移动距离)
+
+
+
+}
+
+funs.广告=function(logs){
+    log('等待5s....')
+    sleep(5000)
+    while(true){
+        idtext='后可领取奖励'
+        if(funs.控件_判断是否存在_正则(idtext))
+        {
+            log('发现【后可领取奖励】进入广告.....')
+            // log(funs.控件_判断是否存在_正则(idtext))
+            str1=funs.控件_判断是否存在_正则(idtext).text()
+            if(str1){
+                log('倒计时：',funs.time_提取秒(str1))
+                this.倒计时('倒计时=',random(funs.time_提取秒(str1)+1,funs.time_提取秒(str1)+3))
+                log('领取成功'); 
+                back();
+                
+            }
+            break;//退出广告   
+        }else{
+            for(var i=70;i>0;i--){
+                sleep(1000)
+                log(logs,'倒计时：',i,'s')
+                if(i==1){
+                  log('退出....')
+                  back();
+                  break; //退出for
+                }
+            } 
+            break;//退出广告   
+        }
+    }
+}
+funs.控件_单_位置_居中 = function (uiobject_str1, logStr) {
+    while (true) {
+        sleep(800)
+        
+        uiobject = textContains(uiobject_str1).findOnce()
+        if (uiobject) {
+            log(uiobject)
+            log(uiobject.bounds().centerY())
+            移动距离 = uiobject.bounds().centerY() - (device.height * 0.5)
+            if (移动距离 > 300) {
+                this.上滑(logStr)
+            } else if (移动距离 < -300) {
+                this.下滑(logStr)
+            } else {
+                log(logStr, '在中间了哦...')
+
+                // log(uiobject.bounds().centerX(), uiobject.bounds().centerY())
+                // click(uiobject.bounds().centerX(), uiobject.bounds().centerY())
                 return true;
             }
         } else {
@@ -599,7 +662,7 @@ funs.控件_中心坐标= function (uiobject){
 funs.控件_坐标点击 = function (uiobject) {
     if (uiobject) {
         objkj = uiobject;
-        if (objkj.checkable()) {
+        if (objkj.clickable()) {
             log('本控件')
             objkj.click();
             return objkj;
@@ -624,7 +687,7 @@ funs.控件_坐标点击 = function (uiobject) {
 funs.控件_点击 = function (uiobject) {
     if (uiobject) {
         objkj = uiobject;
-        if (objkj.checkable()) {
+        if (objkj.clickable()) {
             log('本控件')
             objkj.click();
             return objkj;
@@ -644,10 +707,10 @@ funs.控件_点击 = function (uiobject) {
 
             return objkj;
         }
-    }
+    } 
     if (uiobject.parent()) {
         objkj1 = uiobject.parent();
-        if (objkj1.checkable()) {
+        if (objkj1.clickable()) {
             log('1层父控件')
             objkj1.click();
             return objkj1;
@@ -670,7 +733,7 @@ funs.控件_点击 = function (uiobject) {
     }
     if (uiobject.parent().parent()) {
         objkj2 = uiobject.parent().parent()
-        if (objkj2.checkable()) {
+        if (objkj2.clickable()) {
             log('2层父控件！')
             objkj2.click();
             return objkj2;
@@ -693,7 +756,7 @@ funs.控件_点击 = function (uiobject) {
     };
     if (uiobject.parent().parent().parent()) {
         objkj3 = uiobject.parent().parent().parent();
-        if (objkj3.checkable()) {
+        if (objkj3.clickable()) {
             log('3层父控件！')
             objkj3.click();
             return objkj3;
@@ -715,7 +778,7 @@ funs.控件_点击 = function (uiobject) {
     };
     if (uiobject.parent().parent().parent().parent()) {
         objkj4 = uiobject.parent().parent().parent().parent();
-        if (objkj4.checkable()) {
+        if (objkj4.clickable()) {
             log('4层父控件！')
             objkj4.click();
             return objkj4;

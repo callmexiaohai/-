@@ -84,11 +84,7 @@ var 直播任务=true
 准备工作()
 function 准备工作(){   
   
-funs.功能_清理通知()
-funs.功能_关闭全部应用()
     while (true) {
-        log("=====进入快手极速版==")
-        app.launch("com.kuaishou.nebula")
         
         idtext='跳过'
         if(funs.控件_判断是否存在(idtext))
@@ -102,7 +98,11 @@ funs.功能_关闭全部应用()
             sleep(10000)
             // ksjsb.清除缓存();
             break
-        }
+        }else{
+            funs.功能_清理通知()
+            funs.功能_关闭全部应用()
+            log("=====进入快手极速版==")
+            app.launch("com.kuaishou.nebula")}
     }
 
     log('进入观看视频')
@@ -127,6 +127,57 @@ funs.功能_关闭全部应用()
 
 while (true) {
     sleep(1000);
+    //================出现【 签到 】，默认点击
+    uiobject=funs.控件_判断是否存在_正则('签到立得');
+    // log(uiobject)
+    if(uiobject){
+        log('签到立得.】')
+        uiobject.click()
+    } 
+    //================出现【 签到 】，默认点击
+    uiobject=funs.控件_判断是否存在_正则('立即签到');
+    // log(uiobject)
+    if(uiobject){
+        log('立即签到.】')
+        uiobject.click()
+    } 
+    //================出现【 签到 】，默认点击
+    uiobject=funs.控件_判断是否存在_正则('补签再得');
+    // log(uiobject)
+    if(uiobject){
+        log('补签再得.】')
+        uiobject.click()
+    } 
+    //================出现【 签到 】，默认点击
+    uiobject=funs.控件_判断是否存在_正则('去看视频再赚');
+    // log(uiobject)
+    if(uiobject){
+        log('去看视频再赚.】')
+        uiobject.click()
+    } 
+    //================出现【 签到 】，默认点击
+    uiobject=funs.控件_判断是否存在_正则('看广告再得');
+    // log(uiobject)
+    if(uiobject){
+        log('看广告再得.】')
+        uiobject.click()
+    } 
+    //================出现【退出】，默认点击
+    uiobject=funs.控件_判断是否存在_正则('邀请好友赚更多');
+    // log(uiobject)
+    if(uiobject){
+        log('邀请好友赚更多.】')
+        准备工作()
+    }   
+    //================出现【退出】，默认点击
+    uiobject=funs.控件_判断是否存在_正则('打开签到提醒');
+    // log(uiobject)
+    if(uiobject){
+        log('打开签到提醒.】')
+        准备工作()
+    }   
+
+
     log(funs.单前设备管理())
     log(直播任务)
     if(直播任务){

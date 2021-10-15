@@ -17,14 +17,12 @@ var 悬赏次数=funs.取('悬赏次数')
 var 悬赏任务=true
 var 直播广告时长 = 65
 准备工作()
-function 准备工作(){   
+function 准备工作(){  
+    funs.功能_清理通知()
+    funs.功能_关闭全部应用() 
     
-funs.功能_清理通知()
-funs.功能_关闭全部应用()
     while (true) {
         sleep(1000)
-        log("=====进入快手极速版==")
-        app.launch("com.kuaishou.nebula")
         
         idtext='跳过'
         if(funs.控件_判断是否存在(idtext))
@@ -38,7 +36,9 @@ funs.功能_关闭全部应用()
             sleep(10000)
             // ksjsb.清除缓存();
             break
-        }
+        }else{
+            log("=====已经在 快手极速版中==")
+            app.launch("com.kuaishou.nebula")}
     }
 
     log('进入观看视频')

@@ -180,12 +180,17 @@ function onClick停止脚本(){
     说.说(停止脚本.停止脚本.getText()) 
     快手直播.快手直播.setEnabled(true)
     快手悬赏.快手悬赏.setEnabled(true)
-    快手极速版.快手极速版.setEnabled(true)     
+    快手极速版.快手极速版.setEnabled(true)  
+    学习强国.学习强国.setEnabled(true)   
+    学习强国自动.学习强国自动.setEnabled(true)   
     if(execution){
         execution.getEngine().forceStop();
         快手直播.快手直播.setEnabled(true)
         快手悬赏.快手悬赏.setEnabled(true)
-        快手极速版.快手极速版.setEnabled(true)   
+        快手极速版.快手极速版.setEnabled(true)  
+        学习强国.学习强国.setEnabled(true)   
+        学习强国自动.学习强国自动.setEnabled(true)
+        停止脚本.停止脚本.setEnabled(true)       
     } 
     kjzb("可以退出") ;
 }
