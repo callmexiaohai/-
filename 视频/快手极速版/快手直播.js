@@ -84,7 +84,12 @@ var 直播任务=true
 准备工作()
 function 准备工作(){   
   
+    funs.功能_清理通知()
+    funs.功能_关闭全部应用()
     while (true) {
+        sleep(1000)
+        log("=====进入快手极速版==")
+        app.launch("com.kuaishou.nebula")
         
         idtext='跳过'
         if(funs.控件_判断是否存在(idtext))
@@ -98,11 +103,7 @@ function 准备工作(){
             sleep(10000)
             // ksjsb.清除缓存();
             break
-        }else{
-            funs.功能_清理通知()
-            funs.功能_关闭全部应用()
-            log("=====进入快手极速版==")
-            app.launch("com.kuaishou.nebula")}
+        }
     }
 
     log('进入观看视频')

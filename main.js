@@ -15,7 +15,7 @@ if(files.cwd()=="/storage/emulated/0/脚本") {
    var 学习强国path=root+"/学习强国/学习强国.js"
    var 快手直播path=root+"/视频/快手极速版/快手直播.js"
    var 快手悬赏path=root+"/视频/快手极速版/快手福利.js"
-   var 快手极速版=root+"/视频/快手极速版/快手极速版.js"
+   var 快手极速版path=root+"/视频/快手极速版/快手极速版.js"
    var 学习强国自动path=root+"/学习强国/学习强国自动.js"
 log(root)
 
@@ -132,14 +132,14 @@ function kjzb(instr){
         // 说.说('进入左上角 现在的状态是')
         // 说.说(instr)
         // 说.说(zt)1
-        停止脚本.setPosition(0,h+1*150)
-        退出.setPosition(0,h+1*150)
-        快手直播.setPosition(0,h+1*150)
-        快手悬赏.setPosition(0,h+1*150)
-        快手极速版.setPosition(0,h+1*150)
-        学习强国.setPosition(0,h+1*150)
-        学习强国自动.setPosition(0,h+1*150)
-        隐藏.setPosition(0,h+1*150)
+        停止脚本.setPosition(0,h+1*50)
+        退出.setPosition(0,h+1*50)
+        快手直播.setPosition(0,h+1*50)
+        快手悬赏.setPosition(0,h+1*50)
+        快手极速版.setPosition(0,h+1*50)
+        学习强国.setPosition(0,h+1*50)
+        学习强国自动.setPosition(0,h+1*50)
+        隐藏.setPosition(0,h+1*50)
         隐藏.隐藏.setText('展开')
     }
 
