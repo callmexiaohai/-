@@ -74,18 +74,12 @@ console.setPosition(200, 0);
 var root =engines.myEngine().cwd();
 //获取位置，方便在VS测试
 if(root="/storage/emulated/0/脚本"){
-    var root =root+"/AutoJs/库/"; //当前文件所在的工程位置
+    var root =root+"/AutoJs"; //当前文件所在的工程位置
 }else{
     var root =engines.myEngine().cwd();
 }
-var intent = require(root+"/funIertent.js");
-// log('单例测试 代码；【root】：',root)
-var 清理缓存 = require(root+"/清理缓存.js");
-var 签到 = require(root+"签到.js");
-var funs = require(root+"/funs.js");
-var 学习强国 = require(root+"/学习强国.js");
-var ksjsb = require(root+"/快手极速版.js");
-var 划 = require(root+"/人工划屏.js");
+var funs = require(root+"/库/funs.js");
+var 划 = require(root+"/库/人工划屏.js");
 log('进入===【单例测试】')
 var 点赞关注次数=0
 // 

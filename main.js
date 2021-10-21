@@ -16,9 +16,10 @@ if(files.cwd()=="/storage/emulated/0/脚本") {
    var 快手直播path=root+"/视频/快手极速版/快手直播.js"
    var 快手悬赏path=root+"/视频/快手极速版/快手福利.js"
    var 快手极速版path=root+"/视频/快手极速版/快手极速版.js"
+   var 快手定点path=root+"/视频/快手极速版/快手定点.js"
    var 学习强国自动path=root+"/学习强国/学习强国自动.js"
 log(root)
-
+s
 // if(版本!==服务器版本){
 //     log('服务器有最新版本，我要更新了')
 //     github下载的脚本=获取下载的脚本()
@@ -77,12 +78,6 @@ var 退出 = floaty.window(
     <button id="退出" text="退出" w="85" h="40"  bg="#77ffffff"/>
     </frame>
 );
-
-var 学习强国 = floaty.window(
-    <frame>
-    <button id="学习强国" text="学习强国" w="85" h="40"  bg="#77ffffff"/>
-    </frame>
-);
 var 快手直播 = floaty.window(
     <frame  w="85" h="120" >
     <button id="快手直播" text="快手直播" w="85" h="40"  bg="#77ffffff"/>
@@ -96,6 +91,18 @@ var 快手悬赏 = floaty.window(
 var 快手极速版 = floaty.window(
     <frame>
     <button id="快手极速版" text="快手极速版" w="85" h="40"  bg="#77ffffff"/>
+    </frame>
+);
+var 快手定点 = floaty.window(
+    <frame>
+    <button id="快手定点" text="快手定点" w="85" h="40"  bg="#77ffffff"/>
+    </frame>
+);
+
+
+var 学习强国 = floaty.window(
+    <frame>
+    <button id="学习强国" text="学习强国" w="85" h="40"  bg="#77ffffff"/>
     </frame>
 );
 
@@ -121,12 +128,13 @@ function kjzb(instr){
         // 说.说(zt)
         停止脚本.setPosition(0,h+0*150)
         退出.setPosition(0,h+1*150)
-        学习强国.setPosition(0,h+2*150)
-        快手直播.setPosition(0,h+3*150)
-        快手悬赏.setPosition(0,h+4*150)
-        快手极速版.setPosition(0,h+5*150)
-        学习强国自动.setPosition(0,h+6*150)
-        隐藏.setPosition(0,h+7*150)
+        快手直播.setPosition(0,h+2*150)
+        快手悬赏.setPosition(0,h+3*150)
+        快手极速版.setPosition(0,h+4*150)
+        快手定点.setPosition(0,h+5*150)
+        学习强国.setPosition(0,h+6*150)
+        学习强国自动.setPosition(0,h+7*150)
+        隐藏.setPosition(0,h+8*150)
         隐藏.隐藏.setText('隐藏')
     }else{
         // 说.说('进入左上角 现在的状态是')
@@ -137,6 +145,7 @@ function kjzb(instr){
         快手直播.setPosition(0,h+1*50)
         快手悬赏.setPosition(0,h+1*50)
         快手极速版.setPosition(0,h+1*50)
+        快手定点.setPosition(0,h+1*150)
         学习强国.setPosition(0,h+1*50)
         学习强国自动.setPosition(0,h+1*50)
         隐藏.setPosition(0,h+1*50)
@@ -181,6 +190,7 @@ function onClick停止脚本(){
     快手直播.快手直播.setEnabled(true)
     快手悬赏.快手悬赏.setEnabled(true)
     快手极速版.快手极速版.setEnabled(true)  
+    快手定点.快手定点.setEnabled(true)  
     学习强国.学习强国.setEnabled(true)   
     学习强国自动.学习强国自动.setEnabled(true)   
     if(execution){
@@ -188,6 +198,7 @@ function onClick停止脚本(){
         快手直播.快手直播.setEnabled(true)
         快手悬赏.快手悬赏.setEnabled(true)
         快手极速版.快手极速版.setEnabled(true)  
+        快手定点.快手定点.setEnabled(true)  
         学习强国.学习强国.setEnabled(true)   
         学习强国自动.学习强国自动.setEnabled(true)
         停止脚本.停止脚本.setEnabled(true)       
@@ -207,22 +218,6 @@ function onClick退出(){
     说.说(退出.退出.getText())
     exit();
 
-}
-
-学习强国.学习强国.setOnTouchListener(function(view, event){
-    switch(event.getAction()){
-        case event.ACTION_UP:
-            onClick学习强国();
-            return true;
-    }
-    return true;
-});
-function onClick学习强国(){
-    学习强国.学习强国.setEnabled(true) 
-    说.说(学习强国.学习强国.getText())    
-    execution = engines.execScriptFile(学习强国path);
-    学习强国.学习强国.setEnabled(false)
-    kjzb("隐藏") ; 
 }
 
 快手直播.快手直播.setOnTouchListener(function(view, event){
@@ -275,6 +270,39 @@ function onClick快手极速版(){
     kjzb("隐藏") ;
 }  
    
+    
+快手定点.快手定点.setOnTouchListener(function(view, event){
+    switch(event.getAction()){
+        case event.ACTION_UP:
+            onClick快手定点();
+            return true;
+    }
+    return true;
+});
+function onClick快手定点(){
+    快手定点.快手定点.setEnabled(true) 
+    说.说(快手定点.快手定点.getText())    
+    execution = engines.execScriptFile(快手定点path);
+    快手定点.快手定点.setEnabled(false)
+    kjzb("隐藏") ;
+}  
+   
+学习强国.学习强国.setOnTouchListener(function(view, event){
+    switch(event.getAction()){
+        case event.ACTION_UP:
+            onClick学习强国();
+            return true;
+    }
+    return true;
+});
+function onClick学习强国(){
+    学习强国.学习强国.setEnabled(true) 
+    说.说(学习强国.学习强国.getText())    
+    execution = engines.execScriptFile(学习强国path);
+    学习强国.学习强国.setEnabled(false)
+    kjzb("隐藏") ; 
+}
+
 学习强国自动.学习强国自动.setOnTouchListener(function(view, event){
     switch(event.getAction()){
         case event.ACTION_UP:
