@@ -393,7 +393,7 @@ funs.控件_双_位置_居中 = function (uiobject_str1, uiobject_str2, logStr) 
 
 funs.广告=function(logs){
     log('等待5s....')
-    sleep(5000)
+    sleep(19000)
     while(true){
         idtext='后可领取奖励'
         if(funs.控件_判断是否存在_正则(idtext))
@@ -403,14 +403,14 @@ funs.广告=function(logs){
             str1=funs.控件_判断是否存在_正则(idtext).text()
             if(str1){
                 log('倒计时：',funs.time_提取秒(str1))
-                this.倒计时('倒计时=',random(funs.time_提取秒(str1)+1,funs.time_提取秒(str1)+3))
+                this.倒计时('倒计时=',random(funs.time_提取秒(str1)+6,funs.time_提取秒(str1)+7))
                 log('领取成功'); 
                 back();
                 
             }
             break;//退出广告   
         }else{
-            for(var i=70;i>0;i--){
+            for(var i=55;i>0;i--){
                 sleep(1000)
                 log(logs,'倒计时：',i,'s')
                 if(i==1){
@@ -429,8 +429,8 @@ funs.控件_单_位置_居中 = function (uiobject_str1, logStr) {
         
         uiobject = textContains(uiobject_str1).findOnce()
         if (uiobject) {
-            log(uiobject)
-            log(uiobject.bounds().centerY())
+            // log(uiobject)
+            // log(uiobject.bounds().centerY())
             移动距离 = uiobject.bounds().centerY() - (device.height * 0.5)
             if (移动距离 > 300) {
                 this.上滑(logStr)
@@ -701,7 +701,7 @@ funs.控件_点击 = function (uiobject) {
             log('都没有可以点击的！找坐标吧')
             log(x, y)
             log(x + z1, y + z2)
-            this.标记_xy(x + z1, y + z2)
+            // this.标记_xy(x + z1, y + z2)
             log('点击')
             click(x + z1, y + z2)
 
@@ -724,7 +724,7 @@ funs.控件_点击 = function (uiobject) {
             log('都没有可以点击的！找坐标吧')
             log(x, y)
             log(x + z1, y + z2)
-            this.标记_xy(x + z1, y + z2)
+            // this.标记_xy(x + z1, y + z2)
             log('点击')
             click(x + z1, y + z2)
 
@@ -747,7 +747,7 @@ funs.控件_点击 = function (uiobject) {
             log('都没有可以点击的！找坐标吧')
             log(x, y)
             log(x + z1, y + z2)
-            this.标记_xy(x + z1, y + z2)
+            // this.标记_xy(x + z1, y + z2)
             log('点击')
             click(x + z1, y + z2)
 

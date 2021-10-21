@@ -81,7 +81,7 @@ if(root="/storage/emulated/0/脚本"){
 var intent = require(root+"/funIertent.js");
 // log('单例测试 代码；【root】：',root)
 var 清理缓存 = require(root+"/清理缓存.js");
-var 签到 = require(root+"/签到.js");
+var 签到 = require(root+"签到.js");
 var funs = require(root+"/funs.js");
 var 学习强国 = require(root+"/学习强国.js");
 var ksjsb = require(root+"/快手极速版.js");
