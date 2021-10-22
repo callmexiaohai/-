@@ -12,11 +12,20 @@ var funs = require(root+"/库/funs.js");
     log(device.serial)
    log( funs.单前设备管理())
    //  funs.存('','')
-    log(funs.toTimeyyyy_MM_dd())
-    funs.存('更新','11')
-    log('今日是否更新',funs.取('更新'))
-    log('今日是否更新',funs.取('更新')==funs.toTimeyyyy_MM_dd())
-    funs.存('更新',funs.toTimeyyyy_MM_dd())
-    log('今日是否更新',funs.取('更新'))
-    log('今日是否更新',funs.取('更新')==funs.toTimeyyyy_MM_dd())
-exit()
+   log(files.isDir(root+"/zip文件专用dome/test/AutoJs-master")) //查看文件夹是否存在
+   log(files.isFile(root+"/zip文件专用dome/test/AutoJs-master/版本.js"))//查看文件是否存在
+   log(files.read(root+"/zip文件专用dome/test/AutoJs-master/版本.js",encoding = "UTF-8"))
+   let AutoJsVesion =files.read(root+"/zip文件专用dome/test/AutoJs-master/版本.js")
+   log(AutoJsVesion)
+   var reallyNumbers = AutoJsVesion.match(/\d+/g).map(Number);
+   log("版本号=",reallyNumbers) 
+   log("版本号=",reallyNumbers[0]+reallyNumbers[1]+reallyNumbers[2]) 
+   
+   function 版本对比(oldJs,newJs){
+      let AutoJsVesion =files.read(root+"/zip文件专用dome/test/AutoJs-master/版本.js")
+      log(AutoJsVesion)
+      var reallyNumbers = AutoJsVesion.match(/\d+/g).map(Number);
+      log("版本号=",reallyNumbers) 
+      log("版本号=",reallyNumbers[0]+reallyNumbers[1]+reallyNumbers[2]) 
+   }             
+   exit()
