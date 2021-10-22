@@ -18,9 +18,12 @@ if(files.cwd()=="/storage/emulated/0/脚本") {
    var 快手极速版path=root+"/视频/快手极速版/快手极速版.js"
    var 快手定点path=root+"/视频/快手极速版/快手定点.js"
    var 学习强国自动path=root+"/学习强国/学习强国自动.js"
+   var funs = require(root+"/库/funs.js");
 log(root)
 
-if(1==1){
+funs.存('更新','11')
+// funs.存('更新',funs.toTimeyyyy_MM_dd())
+if(funs.取('更新')!==funs.toTimeyyyy_MM_dd()){
     log('服务器有最新版本，我要更新了')
     github下载的脚本=获取下载的脚本()
     log('github下载的脚本:',github下载的脚本)
