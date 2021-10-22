@@ -133,20 +133,25 @@ funs.getApiLevel =function() {//获取系统API级别
     return android.os.Build.BOOTLOADER;
   }
   funs.单前设备管理 =function (){
+    if(device.serial=='defbd47c0903'){
+        // log('18070737164')
+        return'18070737164'
+    }
     if(device.serial=='30ea67cb'){
+        // log('18070737264')
         return '18070737264'
     }
     if(device.serial=='41e8d596'){
+        // log('17114713590')
         return'17114713590'
     }
-    if(device.serial=='72ec0548'){
+    if(device.serial=='6d2c28d8'){  //72ec0548
+        // log('17114713591')
         return'17114713591'
     }
-    if(device.serial=='7722105d'){
-        return'17114713592'
-    }
-    if(device.serial=='defbd47c0903'){
-        return'18070737164'
+    if(device.serial=='0564b4d8 '){
+        // log('16570875484')
+        return'16570875484'
     }
     
   }

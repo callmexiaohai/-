@@ -19,21 +19,21 @@ if(files.cwd()=="/storage/emulated/0/脚本") {
    var 快手定点path=root+"/视频/快手极速版/快手定点.js"
    var 学习强国自动path=root+"/学习强国/学习强国自动.js"
 log(root)
-s
-// if(版本!==服务器版本){
-//     log('服务器有最新版本，我要更新了')
-//     github下载的脚本=获取下载的脚本()
-//     log('github下载的脚本:',github下载的脚本)
-//     log('下载完成')
-//     sleep(2000)
-//     移动(github下载的脚本)
-//     sleep(2000)
-//     var a=files.cwd()+"/main.js"
-//     engines.execScriptFile(a);
 
-// }else{
-//     log('当前版本是最新版')
-// }
+if(1==1){
+    log('服务器有最新版本，我要更新了')
+    github下载的脚本=获取下载的脚本()
+    log('github下载的脚本:',github下载的脚本)
+    log('下载完成')
+    sleep(2000)
+    移动(github下载的脚本)
+    sleep(2000)
+    var a=root+"/main.js"
+    engines.execScriptFile(a);
+
+}else{
+    log('今日已最新')
+}
 
 
 

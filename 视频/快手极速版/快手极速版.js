@@ -83,7 +83,6 @@ var 划 = require(root+"/库/人工划屏.js");
 log('进入===【单例测试】')
 var 点赞关注次数=0
 // 
-// 
 准备工作()
 // 清除缓存()
 var timeshp="10"//随机划屏
@@ -100,11 +99,12 @@ function 清除缓存(){
 
 var myDate=new Date();
 var timess=random(30,55) //随机 分钟到期
+var timehh=random(21,23) //随机 分钟到期
 var currentTime = new Date(
     parseInt(myDate.getFullYear()), 
     parseInt(myDate.getMonth()), 
     parseInt(myDate.getDate()), 
-    '23', 
+    timehh, 
     timess, 
     '00');     
 
@@ -228,11 +228,13 @@ while (true) {
     主循环++       
     if(textContains('＠').findOnce()){
         log(主循环,textContains('＠').findOnce().text(),'<->点赞关注次数=',点赞关注次数)
-        log(funs.单前设备管理())
+        // log(funs.单前设备管理())
     } 
     if(!funs.toTime_timeout(timeout)){
         log('时间到了')
         log('结束了====')
+        funs.功能_清理通知()
+        funs.功能_关闭全部应用() 
         console.hide()
         home()
         exit()
@@ -241,32 +243,29 @@ while (true) {
     if(funs.快手极速版_金币球){  
         // log('【进入主页 主程序】=')
         random(timeshp, timeshp+4)
-        划.划("上", 10,'主程序tf'); 
+        // log(funs.单前设备管理(),'开始 划.划')
+        划.划("上", 10,funs.单前设备管理()); 
     }
 }
 
 
 
 function 准备工作(){   
-    while (true) {
-        
+    while (true) {        
         idtext='跳过'
         if(funs.控件_判断是否存在(idtext))
             {log(idtext)
                 funs.控件_单定位点击(idtext);
             }
-    
-        sleep(5000)
         if (packageName("com.kuaishou.nebula").exists()) {
-            toastLog("启动快手成功")
-            sleep(10000)
+            toastLog("进入【快手极速版】")
             // ksjsb.清除缓存();
             break
         }else{
-            funs.功能_清理通知()
-            funs.功能_关闭全部应用() 
-            log("=====进入快手极速版==")
-            app.launch("com.kuaishou.nebula")}
+            log("重新启动【快手极速版】")
+            app.launch("com.kuaishou.nebula")
+            sleep(10000)
+        }
     }
 }
 function ksjsb_我知道了(){    
