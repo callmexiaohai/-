@@ -346,6 +346,13 @@ var 划 = require(root+"/库/人工划屏.js");
             uiobject.click()
         } 
         //================出现【 签到 】，默认点击
+        uiobject=funs.控件_判断是否存在_正则('看精彩视频赚更多');
+        // log(uiobject)
+        if(uiobject){
+            log('看精彩视频赚更多.】')
+            uiobject.click()
+        } 
+        //================出现【 签到 】，默认点击
         uiobject=funs.控件_判断是否存在_正则('看广告再得');
         // log(uiobject)
         if(uiobject){
@@ -373,6 +380,24 @@ var 划 = require(root+"/库/人工划屏.js");
         // log(uiobject)
         if(uiobject){
             log('打开开宝箱得金币.】')
+            uiobject.click()
+            // 准备工作()
+        }  
+        
+        //================出现【退出】，默认点击
+        uiobject=funs.控件_判断是否存在_正则('点击重试');
+        // log(uiobject)
+        if(uiobject){
+            log('点击重试.】')
+            uiobject.click()
+            // 准备工作()
+        }  
+        
+        //================出现【退出】，默认点击
+        uiobject=funs.控件_判断是否存在_正则('重试');
+        // log(uiobject)
+        if(uiobject){
+            log('点击  重试.】')
             uiobject.click()
             // 准备工作()
         }  

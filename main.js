@@ -21,22 +21,6 @@ if(files.cwd()=="/storage/emulated/0/脚本") {
    var funs = require(root+"/库/funs.js");
 log(root)
 
-funs.存('更新','11')
-// funs.存('更新',funs.toTimeyyyy_MM_dd())
-if(funs.取('更新')!==funs.toTimeyyyy_MM_dd()){
-    log('服务器有最新版本，我要更新了')
-    github下载的脚本=获取下载的脚本()
-    log('github下载的脚本:',github下载的脚本)
-    log('下载完成')
-    sleep(2000)
-    移动(github下载的脚本)
-    sleep(2000)
-    var a=root+"/main.js"
-    engines.execScriptFile(a);
-
-}else{
-    log('今日已最新')
-}
 
 
 
@@ -114,6 +98,11 @@ var 学习强国自动 = floaty.window(
     <button id="学习强国自动" text="学习强国自动" w="85" h="40"  bg="#77ffffff"/>
     </frame>
 );
+var 更新 = floaty.window(
+    <frame>
+    <button id="更新" text="更新" w="85" h="40"  bg="#77ffffff"/>
+    </frame>
+);
 var 隐藏 = floaty.window(
     <frame>
     <button id="隐藏" text="隐藏" w="85" h="40"  bg="#77ffffff"/>
@@ -137,7 +126,8 @@ function kjzb(instr){
         快手定点.setPosition(0,h+5*150)
         学习强国.setPosition(0,h+6*150)
         学习强国自动.setPosition(0,h+7*150)
-        隐藏.setPosition(0,h+8*150)
+        更新.setPosition(0,h+8*150)
+        隐藏.setPosition(0,h+9*150)
         隐藏.隐藏.setText('隐藏')
     }else{
         // 说.说('进入左上角 现在的状态是')
@@ -148,9 +138,10 @@ function kjzb(instr){
         快手直播.setPosition(0,h+1*50)
         快手悬赏.setPosition(0,h+1*50)
         快手极速版.setPosition(0,h+1*50)
-        快手定点.setPosition(0,h+1*150)
+        快手定点.setPosition(0,h+1*50)
         学习强国.setPosition(0,h+1*50)
         学习强国自动.setPosition(0,h+1*50)
+        更新.setPosition(0,h+1*50)
         隐藏.setPosition(0,h+1*50)
         隐藏.隐藏.setText('展开')
     }
@@ -195,7 +186,8 @@ function onClick停止脚本(){
     快手极速版.快手极速版.setEnabled(true)  
     快手定点.快手定点.setEnabled(true)  
     学习强国.学习强国.setEnabled(true)   
-    学习强国自动.学习强国自动.setEnabled(true)   
+    学习强国自动.学习强国自动.setEnabled(true) 
+    更新.更新.setEnabled(true)   
     if(execution){
         execution.getEngine().forceStop();
         快手直播.快手直播.setEnabled(true)
@@ -204,6 +196,7 @@ function onClick停止脚本(){
         快手定点.快手定点.setEnabled(true)  
         学习强国.学习强国.setEnabled(true)   
         学习强国自动.学习强国自动.setEnabled(true)
+        更新.更新.setEnabled(true)
         停止脚本.停止脚本.setEnabled(true)       
     } 
     kjzb("可以退出") ;
@@ -319,6 +312,27 @@ function onClick学习强国自动(){
     说.说(学习强国自动.学习强国自动.getText())    
     execution = engines.execScriptFile(学习强国自动path);
     学习强国自动.学习强国自动.setEnabled(false)
+    kjzb("隐藏") ; 
+} 
+更新.更新.setOnTouchListener(function(view, event){
+    switch(event.getAction()){
+        case event.ACTION_UP:
+            onClick更新();
+            return true;
+    }
+    return true;
+});
+function onClick更新(){
+    log('服务器有最新版本，我要更新了')
+    // github下载的脚本=获取下载的脚本()
+    // log('github下载的脚本:',github下载的脚本)
+    // log('下载完成')
+    // sleep(2000)
+    // 移动(github下载的脚本)
+    // sleep(2000)
+    // var a=root+"/main.js"
+    // engines.execScriptFile(a);
+
     kjzb("隐藏") ; 
 } 
   

@@ -85,6 +85,24 @@ funs.进入日常任务('快手极速版')
             // 准备工作()
         }  
         
+        //================出现【退出】，默认点击
+        uiobject=funs.控件_判断是否存在_正则('点击重试');
+        // log(uiobject)
+        if(uiobject){
+            log('点击重试.】')
+            uiobject.click()
+            // 准备工作()
+        }  
+        
+        //================出现【退出】，默认点击
+        uiobject=funs.控件_判断是否存在_正则('重试');
+        // log(uiobject)
+        if(uiobject){
+            log('点击  重试.】')
+            uiobject.click()
+            // 准备工作()
+        }  
+        
     }
 });
 

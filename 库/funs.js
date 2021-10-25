@@ -785,6 +785,10 @@ funs.控件_点击 = function (uiobject) {
 
             return objkj;
         }
+
+
+
+        
     } 
     if (uiobject.parent()) {
         objkj1 = uiobject.parent();
