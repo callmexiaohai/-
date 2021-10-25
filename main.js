@@ -18,8 +18,10 @@ if(files.cwd()=="/storage/emulated/0/脚本") {
    var 快手极速版path=root+"/视频/快手极速版/快手极速版.js"
    var 快手定点path=root+"/视频/快手极速版/快手定点.js"
    var 学习强国自动path=root+"/学习强国/学习强国自动.js"
+   var 更新path=root+"/更新.js"
    var funs = require(root+"/库/funs.js");
 log(root)
+
 
 
 
@@ -323,16 +325,10 @@ function onClick学习强国自动(){
     return true;
 });
 function onClick更新(){
-    log('服务器有最新版本，我要更新了')
-    // github下载的脚本=获取下载的脚本()
-    // log('github下载的脚本:',github下载的脚本)
-    // log('下载完成')
-    // sleep(2000)
-    // 移动(github下载的脚本)
-    // sleep(2000)
-    // var a=root+"/main.js"
-    // engines.execScriptFile(a);
-
+    更新.更新.setEnabled(true) 
+    说.说(更新.更新.getText())    
+    execution = engines.execScriptFile(更新path);
+    更新.更新.setEnabled(false)
     kjzb("隐藏") ; 
 } 
   
@@ -406,7 +402,6 @@ function writeFile(path, content) {
   sh.exec('cat ' + tempFile + ' > ' + path)
   sh.exitAndWaitFor()
 }
-
 
 
 
