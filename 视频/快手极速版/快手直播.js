@@ -10,8 +10,8 @@ log('VScode 直接运行，测试辅助定位')
 var funs = require(root+"/库/funs.js");
 var 划 = require(root+"/库/人工划屏.js");
 
-funs.打开app('快手极速版')
-funs.进入日常任务('快手极速版')
+// funs.打开app('快手极速版')
+// funs.进入日常任务('快手极速版')
 
 //辅助： 【签到】
 签到辅助=threads.start(function(){    
@@ -110,7 +110,7 @@ funs.进入日常任务('快手极速版')
 广告辅助=threads.start(function(){
     while(true){
         sleep(1000)
-        funs.广告("快手悬赏")
+        funs.广告(funs.单前设备管理())
     }
 });
 while(true){

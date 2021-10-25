@@ -447,7 +447,15 @@ funs.控件_双_位置_居中 = function (uiobject_str1, uiobject_str2, logStr) 
 
 
 }
-
+funs.手机号=function(){
+    var arr = files.listDir('/storage/emulated/0/脚本')
+   for (var i = 0; i < arr.length; i++) {
+      if(arr[i].indexOf("手机号")>=0){
+         log("发现一例:");
+         funs.存('手机号',files.read('/storage/emulated/0/脚本/'+arr[i],encoding = "UTF-8"));
+     }else{log('请初始化手机号js')}
+   }
+}
 funs.广告=function(logs){
     idtext='后可领取奖励'
     if(funs.控件_判断是否存在_正则(idtext))
