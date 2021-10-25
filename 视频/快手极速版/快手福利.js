@@ -116,7 +116,7 @@ var 划 = require(root+"/库/人工划屏.js");
 广告辅助=threads.start(function(){
     while(true){
         sleep(1000)
-        funs.广告(funs.单前设备管理())
+        funs.广告(funs.当前设备管理())
     }
 });
 while(true){
