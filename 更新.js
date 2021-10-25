@@ -19,10 +19,13 @@ log('github下载的脚本:',github下载的脚本)
 log('下载完成')
 sleep(2000)
 移动(github下载的脚本)
+移动(root)
 sleep(2000)
 var a=root+"/main.js"
-log(a)
+// log(a)
 engines.execScriptFile(a);
+sleep(8000)
+exit()
 
 
 

@@ -330,6 +330,7 @@ function onClick更新(){
     execution = engines.execScriptFile(更新path);
     更新.更新.setEnabled(false)
     kjzb("隐藏") ; 
+    exit()
 } 
   
 
