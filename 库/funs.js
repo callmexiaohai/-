@@ -369,6 +369,58 @@ funs.控件_双重定位 = function (uiobject_str1, uiobject_str2,mun) {
     if(mun=='2'){return uiobject22}
 }
 
+ funs.打开app=function(appName){
+    if(appName='快手极速版'){
+        while (true) {
+            sleep(1000)        
+            idtext='跳过'
+            if(funs.控件_判断是否存在(idtext))
+                {log(idtext)
+                    funs.控件_单定位点击(idtext);
+                }
+        
+            // sleep(5000)
+            if (packageName("com.kuaishou.nebula").exists()) {
+                toastLog("【已经在就在快手app】")
+                // ksjsb.清除缓存();
+                break
+            }else{
+                log("【启动 快手极速版 ")
+                app.launch("com.kuaishou.nebula")
+                sleep(10000)
+            }
+        }
+    }
+}
+
+funs.进入日常任务=function(appName){
+    if(appName='快手极速版'){
+        while(true){
+            sleep(1000)
+            if(className("android.view.View")
+            .depth("5")
+            .indexInParent("2")
+            .id("com.kuaishou.nebula:id/circular_progress_bar").exists()   ){
+               log('发现金币圈圈。点击进入任务界面')
+               var target=className("android.view.View")
+               .depth("5")
+               .indexInParent("2")
+               .id("com.kuaishou.nebula:id/circular_progress_bar")   
+               .findOnce()
+            //    log(target)
+               click(target.bounds().centerX(),target.bounds().centerY())
+               break
+            //    sleep(5000)
+            //    back()
+            
+            
+            }else{
+                log('没有发现金币圈圈。划下个视频')
+               划.划("上", 10,funs.单前设备管理());
+            }
+         }
+        }
+}
 funs.控件_双_位置_居中 = function (uiobject_str1, uiobject_str2, logStr) {
     while (true) {
         sleep(800)
@@ -397,36 +449,57 @@ funs.控件_双_位置_居中 = function (uiobject_str1, uiobject_str2, logStr) 
 }
 
 funs.广告=function(logs){
-    log('等待5s....')
-    sleep(19000)
-    while(true){
-        idtext='后可领取奖励'
-        if(funs.控件_判断是否存在_正则(idtext))
-        {
-            log('发现【后可领取奖励】进入广告.....')
-            // log(funs.控件_判断是否存在_正则(idtext))
-            str1=funs.控件_判断是否存在_正则(idtext).text()
-            if(str1){
-                log('倒计时：',funs.time_提取秒(str1))
-                this.倒计时('倒计时=',random(funs.time_提取秒(str1)+6,funs.time_提取秒(str1)+7))
-                log('领取成功'); 
-                back();
-                
-            }
-            break;//退出广告   
-        }else{
-            for(var i=55;i>0;i--){
-                sleep(1000)
-                log(logs,'倒计时：',i,'s')
-                if(i==1){
-                  log('退出....')
-                  back();
-                  break; //退出for
-                }
-            } 
-            break;//退出广告   
-        }
+    idtext='后可领取奖励'
+    if(funs.控件_判断是否存在_正则(idtext))
+    {
+        log('发现【后可领取奖励】进入广告.....')
+        // log(funs.控件_判断是否存在_正则(idtext))
+        str1=funs.控件_判断是否存在_正则(idtext).text()
+        if(str1){
+            log(logs,'倒计时：',funs.time_提取秒(str1))
+            this.倒计时('倒计时=',random(funs.time_提取秒(str1)+6,funs.time_提取秒(str1)+7))
+            log('领取成功'); 
+            back();
+            
+        }  
     }
+
+
+   //直播金币倒计时
+   if(className("android.widget.TextView")
+   .id("com.kuaishou.nebula:id/award_count_down_text")
+   .exists()){
+      log('发现 直播金币倒计时。开始倒计时')
+      var target=className("android.widget.TextView")
+      .id("com.kuaishou.nebula:id/award_count_down_text")  
+      .findOnce()
+      log(target.text())
+      log(funs.time_提取秒(target.text()))
+      this.倒计时('倒计时=',random(funs.time_提取秒(target.text())+6,funs.time_提取秒(target.text())+7))
+      log('领取成功'); 
+      
+        if(className('android.widget.ImageView')
+        .id('com.kuaishou.nebula:id/live_close')
+        // .id("com.kuaishou.nebula:id/live_close_place_holder")
+        .exists()){
+            log('发现 退出控件按钮')
+        var target=className('android.widget.ImageView')
+        .id('com.kuaishou.nebula:id/live_close')
+        .findOnce()
+        if(target.clickable()){
+            target.click()
+            log('退出直播间')
+        }
+        }else{
+            back();
+            log('没有发现 退出1')
+            }
+   
+   }else{
+      log('没有发现 直播金币倒计时')
+   }
+
+    // else{log("没发现广告")}
 }
 funs.控件_单_位置_居中 = function (uiobject_str1, logStr) {
     while (true) {
