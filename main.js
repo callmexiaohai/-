@@ -460,45 +460,83 @@ function 返回路径的父目录(path){
     log("父目录=",r)
 }
   
-function 移动(文件路径){//遍历文件夹下所有的文件夹和文件
-    //同一目录下的同一文件名
-      log('开始移动')
-      log(文件路径)
-    //   /storage/emulated/0/脚本/辅助小管家/zip文件专用dome/test/AutoWool-main/main.js
-    var dir = 文件路径.replace('main.js','');
-    log('zip文件专用dome/test/'+仓库名字+'-main/main.js')
-    var softduir= 文件路径.replace('zip文件专用dome/test/'+仓库名字+'-main/main.js','');
-    log('下载路径：',dir)
-    log('软件路径softduir：',softduir+'AutoJs')
-    var arr = files.listDir(dir);
 
 
-    log(dir+arr.length)
-    log('文件路径:',文件路径)
-    for(i=0;i<arr.length;i++){
-      log("根目录："+i+'--->'+arr[i]);
-        var arr1 = files.listDir(dir+"/"+arr[i]);
-        if(arr1.length==0){
-          var arro=dir+arr[i] 
-          var arrn=softduir+arr[i]      
-          log('原文件路径：'+arro)      
-          log('需移动文件路径：'+arrn)
-          log(files.move(arro,arrn))
+
+
+
+function moveList(dowdDir) {
+    var arr = files.listDir(dowdDir)
+    for (var i = 0; i < arr.length; i++) {
+        var sonList =files.listDir(dowdDir+"/"+arr[i])
+        if (sonList.length == 0) {
+          log('当前目录：',dowdDir+"/"+arr[i])
+          // log(arr[i])
+          // log(dowdDir)
+          dirs=dowdDir+'/'+arr[i]
+          todirs=dowdDir.replace('/zip文件专用dome/test/Autojs-master','/')+arr[i]
+          // log('dirs',dirs)
+          // log('todirs',todirs)
+          log(files.move(dirs,todirs))
+        } else {
+          moveList(dowdDir+"/"+arr[i]);
         }
-        if(arr1.length>0){
-          log(dir+"/"+arr[i]+"有："+arr1.length+"文件")
-          for(ii=0;ii<arr1.length;ii++){
-            log(arr1[i]+"目录："+ii+'--->'+arr1[ii]);
-            var arro=dir+arr[i]+"/"+arr1[ii] 
-            var arrn=softduir+arr[i]+"/"+arr1[ii]
-            log('原文件路径：'+arro)      
-            log('需移动文件路径：'+arrn)
-            log(files.move(arro,arrn))
-          }
-        }
-    
     }
+    return arr;
+  }
+  
+  
+  function 移动(文件路径){//遍历文件夹下所有的文件夹和文件
+     //同一目录下的同一文件名
+       log('开始移动')
+       log(文件路径)
+     //   /storage/emulated/0/脚本/辅助小管家/zip文件专用dome/test/AutoWool-main/main.js
+     var dowdDir = root.concat('/zip文件专用dome/test/Autojs-master');
+     log('文件下载路径'+dowdDir)
+     var softDir= root
+     log('软件路径softDir：',softDir)
+     moveList(dowdDir) 
+  }
+   
+// function 移动(文件路径){//遍历文件夹下所有的文件夹和文件
+//     //同一目录下的同一文件名
+//       log('开始移动')
+//       log(文件路径)
+//     //   /storage/emulated/0/脚本/辅助小管家/zip文件专用dome/test/AutoWool-main/main.js
+//     var dir = 文件路径.replace('main.js','');
+//     log('zip文件专用dome/test/'+仓库名字+'-main/main.js')
+//     var softduir= 文件路径.replace('zip文件专用dome/test/'+仓库名字+'-main/main.js','');
+//     log('下载路径：',dir)
+//     log('软件路径softduir：',softduir+'AutoJs')
+//     var arr = files.listDir(dir);
+
+
+//     log(dir+arr.length)
+//     log('文件路径:',文件路径)
+//     for(i=0;i<arr.length;i++){
+//       log("根目录："+i+'--->'+arr[i]);
+//         var arr1 = files.listDir(dir+"/"+arr[i]);
+//         if(arr1.length==0){
+//           var arro=dir+arr[i] 
+//           var arrn=softduir+arr[i]      
+//           log('原文件路径：'+arro)      
+//           log('需移动文件路径：'+arrn)
+//           log(files.move(arro,arrn))
+//         }
+//         if(arr1.length>0){
+//           log(dir+"/"+arr[i]+"有："+arr1.length+"文件")
+//           for(ii=0;ii<arr1.length;ii++){
+//             log(arr1[i]+"目录："+ii+'--->'+arr1[ii]);
+//             var arro=dir+arr[i]+"/"+arr1[ii] 
+//             var arrn=softduir+arr[i]+"/"+arr1[ii]
+//             log('原文件路径：'+arro)      
+//             log('需移动文件路径：'+arrn)
+//             log(files.move(arro,arrn))
+//           }
+//         }
     
-}
+//     }
+    
+// }
   
 
