@@ -132,7 +132,7 @@ funs.getApiLevel =function() {//获取系统API级别
   funs.getBootLoader =function() {//获取设备引导程序版本号
     return android.os.Build.BOOTLOADER;
   }
-  funs.单前设备管理 =function (){
+  funs.当前设备管理 =function (){
     if(device.serial=='defbd47c0903'){
         // log('18070737164')
         return'18070737164'
@@ -149,7 +149,7 @@ funs.getApiLevel =function() {//获取系统API级别
         // log('17114713591')
         return'17114713591'
     }
-    if(device.serial=='0564b4d8 '){
+    if(device.serial=='0564b4d8'){
         // log('16570875484')
         return'16570875484'
     }
@@ -416,7 +416,7 @@ funs.进入日常任务=function(appName){
             
             }else{
                 log('没有发现金币圈圈。划下个视频')
-               划.划("上", 10,funs.单前设备管理());
+               划.划("上", 10,funs.当前设备管理());
             }
          }
         }
@@ -456,7 +456,9 @@ funs.手机号=function(){
      }else{log('请初始化手机号js')}
    }
 }
-funs.广告=function(logs){
+
+
+funs.广告=function(){
     idtext='后可领取奖励'
     if(funs.控件_判断是否存在_正则(idtext))
     {
@@ -464,14 +466,15 @@ funs.广告=function(logs){
         // log(funs.控件_判断是否存在_正则(idtext))
         str1=funs.控件_判断是否存在_正则(idtext).text()
         if(str1){
-            log(logs,'倒计时：',funs.time_提取秒(str1))
-            this.倒计时('倒计时=',random(funs.time_提取秒(str1)+6,funs.time_提取秒(str1)+7))
+            this.倒计时(this.当前设备管理(),random(funs.time_提取秒(str1)+6,funs.time_提取秒(str1)+7))
             log('领取成功'); 
             back();
             
         }  
     }
+}
 
+funs.广告_直播=function(logs){
 
    //直播金币倒计时
    if(className("android.widget.TextView")
@@ -504,7 +507,7 @@ funs.广告=function(logs){
             }
    
    }else{
-      log('没有发现 直播金币倒计时')
+       this.倒计时(this.当前设备管理(),'65')
    }
 
     // else{log("没发现广告")}

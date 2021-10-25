@@ -107,12 +107,12 @@ var 划 = require(root+"/库/人工划屏.js");
 });
 
 //辅助： 【 广告倒计时 】
-广告辅助=threads.start(function(){
-    while(true){
-        sleep(1000)
-        funs.广告(funs.单前设备管理())
-    }
-});
+// 广告辅助=threads.start(function(){
+//     while(true){
+//         sleep(1000)
+//         funs.广告(funs.单前设备管理())
+//     }
+// });
 while(true){
     while(true){
         if(funs.控件_单_位置_居中('每次110金币，海量主播发福利')){   
@@ -128,8 +128,8 @@ while(true){
                 log("直播次数=",reallyNumbers[1]+1)
                 if(funs.控件_点击(uiobject)){
                     log('进入广告视频')
-                    // funs.广告('直播',65)
-                    // back()
+                    funs.广告_直播('直播',65)
+                    back()
                 }
                 if(reallyNumbers[2]==reallyNumbers[1]+1){                
                     log('还剩1次，跑完直播退出')

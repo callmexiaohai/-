@@ -10,7 +10,7 @@ log('VScode 直接运行，测试辅助定位')
 var funs = require(root+"/库/funs.js");
 
     log(device.serial)
-   log( funs.单前设备管理())
+   log( funs.当前设备管理())
    // //  funs.存('','')
    // log(files.isDir(root+"/zip文件专用dome/test/AutoJs-master")) //查看文件夹是否存在
    // log(files.isFile(root+"/zip文件专用dome/test/AutoJs-master/版本.js"))//查看文件是否存在
