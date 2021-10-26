@@ -72,7 +72,7 @@ var 划 = require(root+"/库/人工划屏.js");
         if(uiobject){
             log('邀请好友赚更多.】')
             back()
-            进入日常任务()
+            text('去赚钱').findOnce().click()
             // 准备工作()
         }   
         //================出现【退出】，默认点击
