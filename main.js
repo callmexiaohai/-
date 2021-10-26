@@ -49,13 +49,14 @@ log(root)
 // log(lodvesion[2]==newvesion[2])
 
 
-
+log('a.b.c'.split('.')[1])
 var h=device.height*0.2
 var zt='展开';
 var 说 = require(files.join(root,"/库/文本转语音.js"));
 // 说.说("测试")
-
-
+var 版本号=files.read(root+"/版本.js",encoding = "UTF-8");
+版本号=版本号.split('"')[1]
+log("版本号:",版本号)
 
 var 停止脚本 = floaty.window(
     <frame>
@@ -64,7 +65,7 @@ var 停止脚本 = floaty.window(
 );
 var 退出 = floaty.window(
     <frame>
-    <button id="退出" text="退出" w="85" h="40"  bg="#77ffffff"/>
+    <button id="退出" text="退出{{版本号}}" w="85" h="40"  bg="#77ffffff"/>
     </frame>
 );
 var 快手直播 = floaty.window(

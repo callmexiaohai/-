@@ -19,7 +19,7 @@ log('github下载的脚本:',github下载的脚本)
 log('下载完成')
 sleep(2000)
 // 移动(github下载的脚本)
-// 解压zip文件(files.join(root,"zip文件专用dome/test.zip"))
+解压zip文件(files.join(root,"zip文件专用dome/test.zip"))
 移动(root)
 sleep(2000)
 var a=root+"/main.js"
@@ -28,6 +28,28 @@ engines.execScriptFile(a);
 sleep(8000)
 exit()
 
+function moveList(dowdDir) {
+  var arr = files.listDir(dowdDir)
+  for (var i = 0; i < arr.length; i++) {
+      var sonList =files.listDir(dowdDir+"/"+arr[i])
+      if (sonList.length == 0) {
+        log('当前目录：',dowdDir+"/"+arr[i])
+        // log(arr[i])
+        log(dowdDir)
+        dirs=dowdDir+'/'+arr[i]
+        todirs=dowdDir.replace('/zip文件专用dome/test/Autojs-master','')+'/'+arr[i]
+        if(1==1){
+          log('dirs',dirs)
+          log('todirs',todirs)
+
+        }
+        log(files.move(dirs,todirs))
+      } else {
+        moveList(dowdDir+"/"+arr[i]);
+      }
+  }
+  return arr;
+}
 
 
 
@@ -86,25 +108,6 @@ function 返回路径的父目录(path){
 }
 
 
-function moveList(dowdDir) {
-  var arr = files.listDir(dowdDir)
-  for (var i = 0; i < arr.length; i++) {
-      var sonList =files.listDir(dowdDir+"/"+arr[i])
-      if (sonList.length == 0) {
-        log('当前目录：',dowdDir+"/"+arr[i])
-        // log(arr[i])
-        // log(dowdDir)
-        dirs=dowdDir+'/'+arr[i]
-        todirs=dowdDir.replace('/zip文件专用dome/test/Autojs-master','/')+arr[i]
-        // log('dirs',dirs)
-        // log('todirs',todirs)
-        log(files.move(dirs,todirs))
-      } else {
-        moveList(dowdDir+"/"+arr[i]);
-      }
-  }
-  return arr;
-}
 
 
 function 移动(文件路径){//遍历文件夹下所有的文件夹和文件
