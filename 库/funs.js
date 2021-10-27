@@ -143,11 +143,11 @@ funs.getApiLevel =function() {//获取系统API级别
     }
     if(device.serial=='41e8d596'){
         // log('17114713590')
-        return'17114713590'
+        return'17114715490'
     }
     if(device.serial=='6d2c28d8'){  //72ec0548
         // log('17114713591')
-        return'17114713591'
+        return'17114715491'
     }
     if(device.serial=='0564b4d8'){
         // log('16570875484')

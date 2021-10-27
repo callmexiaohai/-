@@ -193,6 +193,7 @@ function onClick停止脚本(){
     更新.更新.setEnabled(true)   
     if(execution){
         execution.getEngine().forceStop();
+        console.hide()
         快手直播.快手直播.setEnabled(true)
         快手悬赏.快手悬赏.setEnabled(true)
         快手极速版.快手极速版.setEnabled(true)  
