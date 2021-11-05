@@ -204,6 +204,7 @@ function onClick停止脚本(){
         停止脚本.停止脚本.setEnabled(true)       
     } 
     kjzb("可以退出") ;
+    console.hide()
 }
 
 退出.退出.setOnTouchListener(function(view, event){
