@@ -215,27 +215,25 @@ funs.控件_判断是否存在 = function (uiobj) {
 
 funs.控件_单定位点击 = function (uiobject_str) {
     // log("控件_单定位点击=",uiobject_str)
-    uiobject_id = id(uiobject_str).findOnce();
     uiobject_text = text(uiobject_str).findOnce();
     uiobject_desc = desc(uiobject_str).findOnce();
-    if (uiobject_id) {
-        uiobject = uiobject_id;
-        uiobject_str = uiobject.id();
-        // log('id==',uiobject)
-    } else if (uiobject_text) {
+    if (uiobject_text) {
         uiobject = uiobject_text;
-        uiobject_str = uiobject.text();
+        uiobject_str ="text:"+ uiobject.text();
         // log('text==',uiobject)        
     } else if (uiobject_desc) {
         uiobject = uiobject_desc;
-        uiobject_str = uiobject.desc();
+        uiobject_str ="desc:"+  uiobject.desc();
         // log('desc==',uiobject)       
+    }else{
+        log('text desc 不存在控件，请核对好在点击')
+        return null
     }
 
     if (uiobject) {
         objkj = uiobject;
         if (objkj.clickable()) {
-            log('本控件')
+            log(uiobject_str,'本控件')
             objkj.click();
             return objkj;
         } else {
@@ -245,7 +243,7 @@ funs.控件_单定位点击 = function (uiobject_str) {
             z1 = random(-20, 20)
             z2 = random(-20, 20)
             //随机子增减
-            log('坐标点击')
+            log(uiobject_str,'坐标点击')
             log(x, y)
             log(x + z1, y + z2)
             click(x + z1, y + z2)
@@ -256,17 +254,17 @@ funs.控件_单定位点击 = function (uiobject_str) {
     if (uiobject.parent()) {
         objkj1 = uiobject.parent();
         if (objkj1.clickable()) {
-            log('1层父控件')
+            log(uiobject_str,'1级父控件')
             objkj1.click();
             return objkj1;
         } else {
-            log(objkj)
+            // log(objkj)
             x = objkj.bounds().centerX();
             y = objkj.bounds().centerY();
             z1 = random(-20, 20)
             z2 = random(-20, 20)
-            //随机子增减
-            log('都没有可以点击的！找坐标吧')
+            //随机子增减            
+            log(uiobject_str,'1级父控件坐标点击')
             log(x, y)
             log(x + z1, y + z2)
             log('点击')
@@ -278,7 +276,7 @@ funs.控件_单定位点击 = function (uiobject_str) {
     if (uiobject.parent().parent()) {
         objkj2 = uiobject.parent().parent()
         if (objkj2.clickable()) {
-            log('2层父控件！')
+            log(uiobject_str,'2层父控件！')
             objkj2.click();
             return objkj2;
         } else {
@@ -288,7 +286,7 @@ funs.控件_单定位点击 = function (uiobject_str) {
             z1 = random(-20, 20)
             z2 = random(-20, 20)
             //随机子增减
-            log('都没有可以点击的！找坐标吧')
+            log(uiobject_str,'2级父控件坐标点击')
             log(x, y)
             log(x + z1, y + z2)
             log('点击')
@@ -300,7 +298,7 @@ funs.控件_单定位点击 = function (uiobject_str) {
     if (uiobject.parent().parent().parent()) {
         objkj3 = uiobject.parent().parent().parent();
         if (objkj3.clickable()) {
-            log('3层父控件！')
+            log(uiobject_str,'3级父控件！')
             objkj3.click();
             return objkj3;
         } else {
@@ -310,7 +308,7 @@ funs.控件_单定位点击 = function (uiobject_str) {
             z1 = random(-20, 20)
             z2 = random(-20, 20)
             //随机子增减
-            log('都没有可以点击的！找坐标吧')
+            log(uiobject_str,'3级父控件坐标点击')
             log(x, y)
             log(x + z1, y + z2)
             log('点击')
@@ -322,7 +320,7 @@ funs.控件_单定位点击 = function (uiobject_str) {
     if (uiobject.parent().parent().parent().parent()) {
         objkj4 = uiobject.parent().parent().parent().parent();
         if (objkj4.clickable()) {
-            log('4层父控件！')
+            log(uiobject_str,'4级父控件！')
             objkj4.click();
             return objkj4;
         } else {
@@ -332,7 +330,7 @@ funs.控件_单定位点击 = function (uiobject_str) {
             z1 = random(-20, 20)
             z2 = random(-20, 20)
             //随机子增减
-            log('都没有可以点击的！找坐标吧')
+            log(uiobject_str,'4级父控件坐标点击')
             log(x, y)
             log(x + z1, y + z2)
             log('点击')

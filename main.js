@@ -1,4 +1,5 @@
-// console.show()
+// 
+console.show()
 //https://github.com/callmexiaohai/Autojs/archive/refs/heads/main.zip
 var url="https://github.com/callmexiaohai/Autojs.git"
 // var githubUrl=url.replace('.git','')+'/archive/refs/heads/main.zip'

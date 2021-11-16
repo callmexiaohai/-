@@ -9,6 +9,9 @@ log('VScode 直接运行，测试辅助定位')
 //对应添加项目文件目录及对应的文件 ： var 快手之直播path=root+"/视频/快手极速版/快手极速版.js"
 var funs = require(root+"/库/funs.js");
 var 划 = require(root+"/库/人工划屏.js");
+
+let textStrArr=["福利","放弃奖励","领福利","开宝箱得金币","看视频最高得","坚持退出"]
+
 // 打开app()
 // 进入日常任务()
 
@@ -111,6 +114,35 @@ var 划 = require(root+"/库/人工划屏.js");
         
     }
 });
+
+
+控件点击=threads.start(function(){ 
+    var textOld="0"  
+    while(true){
+       sleep(5000)
+          for(var i=0;i<textStrArr.length;i++){
+             textOld=textStrArr[i]+funs.取(textStrArr[i])
+             // log("记录：",textOld)
+          if(text(textStrArr[i]).exists()){
+             funs.存(textStrArr[i],'存在')
+             funs.控件_单定位点击(textStrArr[i])   
+          }else{
+             funs.存(textStrArr[i],'不存在')
+          }
+ 
+          if(textStrArr[i]+funs.取(textStrArr[i])!==textOld){
+             log("你是主角：",textStrArr[i]+funs.取(textStrArr[i]))
+          }
+ 
+ 
+ 
+                
+          }
+       
+ }
+ })
+
+
 
 //辅助： 【 广告倒计时 】
 广告辅助=threads.start(function(){
