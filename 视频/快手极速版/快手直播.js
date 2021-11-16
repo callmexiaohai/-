@@ -13,6 +13,32 @@ var 划 = require(root+"/库/人工划屏.js");
 // funs.打开app('快手极速版')
 // funs.进入日常任务('快手极速版')
 
+let textStrArr=["退出","放弃奖励","看视频最高得","坚持退出"]
+控件点击=threads.start(function(){ 
+    var textOld="0"  
+    while(true){
+       sleep(5000)
+          for(var i=0;i<textStrArr.length;i++){
+             textOld=textStrArr[i]+funs.取(textStrArr[i])
+             // log("记录：",textOld)
+          if(text(textStrArr[i]).exists()){
+             funs.存(textStrArr[i],'存在')
+             funs.控件_单定位点击(textStrArr[i])   
+          }else{
+             funs.存(textStrArr[i],'不存在')
+          }
+ 
+          if(textStrArr[i]+funs.取(textStrArr[i])!==textOld){
+             log("你是主角：",textStrArr[i]+funs.取(textStrArr[i]))
+          }
+ 
+ 
+ 
+                
+          }
+       
+ }
+ })
 //辅助： 【签到】
 签到辅助=threads.start(function(){    
     while(true){
