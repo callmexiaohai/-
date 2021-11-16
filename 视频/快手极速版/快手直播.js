@@ -13,7 +13,7 @@ var 划 = require(root+"/库/人工划屏.js");
 // funs.打开app('快手极速版')
 // funs.进入日常任务('快手极速版')
 
-let textStrArr=["退出","放弃奖励","看视频最高得","坚持退出"]
+let textStrArr=["退出","直接退出","放弃奖励","看视频最高得","坚持退出"]
 控件点击=threads.start(function(){ 
     var textOld="0"  
     while(true){
